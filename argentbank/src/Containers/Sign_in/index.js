@@ -10,7 +10,7 @@ var token = localStorage.getItem('UserToken');
 
 function handleSubmit(event) {
 event.preventDefault();
-getToken("steve@rogers.com", "password456");
+getToken(event.target.email.value, event.target.password.value);
 }
 function Sign_in() {
 
@@ -23,10 +23,10 @@ function Sign_in() {
         <h1>Sign In</h1>
         <form id="login" onSubmit={e => {handleSubmit(e)}} > 
           <div className="input-wrapper">
-            <label htmlFor="username">Username</label><input type="text" id="username"></input>
+            <label htmlFor="username">Username</label><input name="email"  type="text" id="username"></input>
           </div>
           <div className="input-wrapper">
-            <label htmlFor="password">Password</label><input type="password" id="password"></input>
+            <label htmlFor="password">Password</label><input name="password" type="password" id="password"></input>
           </div>
          
            <div className="input-remember">
