@@ -25,6 +25,7 @@ return fetch('http://localhost:3001/api/v1/user/login', {
   .then(response => {
     localStorage.setItem('UserToken', response.body.token);
     console.debug(response);
+    window.location.href = "http://localhost:3000/User";
   }).catch(error => {
     console.error(error);
   });

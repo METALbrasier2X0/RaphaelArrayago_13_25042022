@@ -1,6 +1,6 @@
 import reportWebVitals from './reportWebVitals';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { generatePath } from "react-router";
 import Container from 'react-bootstrap/Container';
 import { BrowserRouter, Routes, Route, Link, useHistory, useLocation, Redirect } from "react-router-dom";
@@ -39,4 +39,4 @@ export default function App() {
   </Provider>
   );
 }
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);

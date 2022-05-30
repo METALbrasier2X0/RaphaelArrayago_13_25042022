@@ -5,9 +5,6 @@ import { BrowserRouter, Routes, Route, Link, useHistory, useLocation, Redirect }
 
 import getToken from './../Session/userLogin.js';
 
-var token = localStorage.getItem('UserToken');
-    console.log(token)
-
 function handleSubmit(event) {
 event.preventDefault();
 getToken(event.target.email.value, event.target.password.value);
