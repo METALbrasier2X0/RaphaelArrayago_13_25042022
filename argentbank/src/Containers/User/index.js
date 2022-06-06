@@ -4,6 +4,7 @@ import { generatePath } from "react-router";
 import { BrowserRouter, Routes, Route, Link, useHistory, useLocation, Redirect } from "react-router-dom";
 
 import getProfile from './../Session/userProfile.js';
+import updateProfile from './../Session/updateProfile.js';
 import Bloc from "./bloc.js";
 
 var token = localStorage.getItem('UserToken');
@@ -11,10 +12,9 @@ var preface ='Bearer'
 
 var sendin = preface.concat(' ', token);
 
-getProfile(sendin)
-
 function User() {
   
+  getProfile(sendin)
 
 if (token == null) {
     window.location.href = "http://localhost:3000/";
@@ -22,10 +22,9 @@ if (token == null) {
 
   return (
    <>
+
    <main className="main bg-dark User">
-      <div className="header">
-        <h1>Welcome back Tony Jarvis!</h1>
-        <button onClick={(e) => getProfile(sendin)} className="edit-button">Edit Name</button>
+      <div id="userDashboard" className="header">
       </div>
       <h2 className="sr-only">Accounts</h2>
         
