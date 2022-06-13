@@ -3,13 +3,46 @@ import ReactDOM from 'react-dom';
 import { generatePath } from "react-router";
 import { BrowserRouter, Routes, Route, Link, useHistory, useLocation, Redirect } from "react-router-dom";
 
-import getToken from './../Session/userLogin.js';
+import { useSelector, useDispatch } from 'react-redux'
+import { storeToken, clearToken } from '../Session/userSession'
 
-function handleSubmit(event) {
-event.preventDefault();
-getToken(event.target.email.value, event.target.password.value);
-}
+/*import GetToken from './../Session/userLogin.js';*/
+
 function Sign_in() {
+
+  const dispatch = useDispatch()
+
+function GetToken(event, Email, Password) {
+
+event.preventDefault();
+
+const myHeaders = new Headers({
+    'Content-Type': 'application/json',
+    'Authorization': 'your-token'
+});
+
+return fetch('http://localhost:3001/api/v1/user/login', {
+  method: 'POST',
+  headers: myHeaders,
+  body: JSON.stringify({ "email": Email, "password": Password })
+})
+
+.then(response => {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      throw new Error('Something went wrong on api server!');
+    }
+  })
+  .then(response => {
+    localStorage.setItem('UserToken', response.body.token);
+    dispatch(storeToken(response.body.token));
+    console.debug(response);
+    window.location.href = "http://localhost:3000/User";
+  }).catch(error => {
+    console.error(error);
+  });
+}
 
   return (
    <>
@@ -18,7 +51,7 @@ function Sign_in() {
       <section className="sign-in-content">
         <i className="fa fa-user-circle sign-in-icon"></i>
         <h1>Sign In</h1>
-        <form id="login" onSubmit={e => {handleSubmit(e)}} > 
+        <form id="login" onSubmit={e => {GetToken(e, e.target.email.value, e.target.password.value);}} > 
           <div className="input-wrapper">
             <label htmlFor="username">Username</label><input name="email"  type="text" id="username"></input>
           </div>

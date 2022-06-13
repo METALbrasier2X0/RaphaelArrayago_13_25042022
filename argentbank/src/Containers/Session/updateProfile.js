@@ -4,13 +4,19 @@ import { useSelector, useDispatch } from 'react-redux'
 
 function updateProfile(Token) {
 
+   let FirstName = prompt("Please enter your first name:", "FirstName");
+   let LastName = prompt("Please enter your last name:", "LastName");
 
-  const requestOptions = {
+   if (FirstName == null || FirstName == "") {
+    
+  } else {
+
+     const requestOptions = {
         method: 'PUT',
         headers: { Authorization: Token,
         'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName: "Steve",
-      lastName: "Rogers", })
+        body: JSON.stringify({ firstName: FirstName,
+      lastName: LastName, })
     };
 
 
@@ -25,8 +31,11 @@ function updateProfile(Token) {
   })
   .then(response => {
     console.debug(response);
+     window.location.reload();
   }).catch(error => {
     console.error(error);
   });
+
+  }
 }
 export default updateProfile

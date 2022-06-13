@@ -1,8 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { storeToken, clearToken } from './userSession'
 
+function getToken(event, Email, Password) {
 
-function getToken(Email, Password) {
+event.preventDefault();
 
 const myHeaders = new Headers({
     'Content-Type': 'application/json',

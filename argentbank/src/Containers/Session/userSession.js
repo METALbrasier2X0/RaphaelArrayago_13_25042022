@@ -1,20 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const userSession = createSession({
-  name: 'session',
+export const tokenSlice = createSlice({
+  name: 'Token',
   initialState: {
-    value: 0
+    value: null,
   },
   reducers: {
-    Init: state => {
-      state.value += 1
+    storeToken: (state, tokenValue) => {
+      state.value = tokenValue
+      console.log (state.value)
     },
-    Modify: state => {
-      state.value -= 1
-    }  }
+    clearToken: (state) => {
+      state.value = null
+      console.log (state.value)
+    },
+    askToken: (state) => {
+      return state.value
+    },
+  },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = userSession.actions
+export const { storeToken, clearToken, askToken } = tokenSlice.actions
 
-export default userSession.reducer
+export default tokenSlice.reducer

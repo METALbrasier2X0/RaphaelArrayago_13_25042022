@@ -3,6 +3,9 @@ import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container';
 import React, { useState } from 'react';
 
+import { useSelector, useDispatch } from 'react-redux'
+import { storeToken, clearToken, askToken } from './Session/userSession'
+
 import logo from './../img/argentBankLogo.png';
 
 /**
@@ -13,22 +16,29 @@ import logo from './../img/argentBankLogo.png';
 
  var token = localStorage.getItem('UserToken');
 
-function logout() {
-localStorage.removeItem("UserToken");
+function Header(props) {
+
+  const dispatch = useDispatch()
+
+function Logout() {
+
+
+dispatch(clearToken())
+   localStorage.clear();
+
 }
 
 function Logoutdiv(status) {
   const [visibility,set_visibility] = useState(status)
+  const dispatch = useDispatch()
 
   return (
     <>
-     {visibility&& <Nav.Link  onClick={() => logout()} className="main-nav-item" href="/Sign_in" ><i className="fa fa-sign-out"></i>Sign out</Nav.Link> }
+     {visibility&& <Nav.Link  onClick={() => Logout()} className="main-nav-item" href="/Sign_in" ><i className="fa fa-sign-out"></i>Sign out</Nav.Link> }
     </>
   );
 }
 
-
-function Header(props) {
 
     var status = false;
     if (token != null) {

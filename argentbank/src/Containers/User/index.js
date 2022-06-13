@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { generatePath } from "react-router";
 import { BrowserRouter, Routes, Route, Link, useHistory, useLocation, Redirect } from "react-router-dom";
 
-import getProfile from './../Session/userProfile.js';
+import GetProfile from './../Session/userProfile.js';
 import updateProfile from './../Session/updateProfile.js';
 import Bloc from "./bloc.js";
 
@@ -14,7 +14,7 @@ var sendin = preface.concat(' ', token);
 
 function User() {
   
-  getProfile(sendin)
+  GetProfile(sendin)
 
 if (token == null) {
     window.location.href = "http://localhost:3000/";
