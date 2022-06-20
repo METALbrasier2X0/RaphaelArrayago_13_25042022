@@ -1,8 +1,25 @@
-import { configureStore } from '@reduxjs/toolkit'
 import tokenReducer from './Session/userSession.js'
+import {configureStore} from '@reduxjs/toolkit';
+import storage from 'redux-persist/lib/storage';
+import {combineReducers} from "redux";
+import { persistReducer } from 'redux-persist';
+import thunk from 'redux-thunk';
 
-export default configureStore({
-  reducer: {
-    Token: tokenReducer,
-  },
-})
+const reducers = combineReducers({
+  Token: tokenReducer
+});
+
+const persistConfig = {
+    key: 'root',
+    storage
+};
+
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+const store = configureStore({
+    reducer: persistedReducer,
+    devTools: process.env.NODE_ENV !== 'production',
+    middleware: [thunk]
+});
+
+export default store;

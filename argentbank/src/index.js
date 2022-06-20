@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { generatePath } from "react-router";
 import Container from 'react-bootstrap/Container';
+
 import { BrowserRouter, Routes, Route, Link, useHistory, useLocation, Redirect } from "react-router-dom";
 import './css/main.css';
 
@@ -14,11 +15,16 @@ import Footer from "./Containers/Footer.js";
 
 import store from './Containers/store'
 import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore } from 'redux-persist';
+
+let persistor = persistStore(store);
 
 export default function App() {
 
   return (
     <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
     <BrowserRouter>
 
     <Header/>
@@ -36,6 +42,7 @@ export default function App() {
 
 
   </BrowserRouter>
+  </PersistGate>
   </Provider>
   );
 }

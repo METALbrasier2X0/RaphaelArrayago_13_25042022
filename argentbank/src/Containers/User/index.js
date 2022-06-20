@@ -2,18 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { generatePath } from "react-router";
 import { BrowserRouter, Routes, Route, Link, useHistory, useLocation, Redirect } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { storeToken, clearToken, selectToken } from '../Session/userSession'
 
 import GetProfile from './../Session/userProfile.js';
 import updateProfile from './../Session/updateProfile.js';
 import Bloc from "./bloc.js";
 
-var token = localStorage.getItem('UserToken');
-var preface ='Bearer' 
-
-var sendin = preface.concat(' ', token);
-
 function User() {
-  
+
+  const token = useSelector(selectToken);
+  var preface ='Bearer' ;
+
+  var sendin = preface.concat(' ', token);
+
   GetProfile(sendin)
 
 if (token == null) {

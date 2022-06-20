@@ -15,7 +15,7 @@ function Bloc(props) {
           <p className="account-amount-description">{props.State}</p>
         </div>
         <div className="account-content-wrapper cta">
-          <button className="transaction-button">View transactions</button>
+          <button  className="transaction-button">View transactions</button>
         </div>
       </section>
 

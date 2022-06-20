@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import React, { useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux'
-import { storeToken, clearToken, askToken } from './Session/userSession'
+import { storeToken, clearToken, selectToken } from './Session/userSession'
 
 import logo from './../img/argentBankLogo.png';
 
@@ -14,17 +14,15 @@ import logo from './../img/argentBankLogo.png';
  * @return  {React element}             Containers that shows the Header of the App          
  */
 
- var token = localStorage.getItem('UserToken');
+
 
 function Header(props) {
-
+   var token = useSelector(selectToken);
   const dispatch = useDispatch()
 
 function Logout() {
 
-
 dispatch(clearToken())
-   localStorage.clear();
 
 }
 
