@@ -20,7 +20,7 @@ function User() {
 
 if (token == null) {
     window.location.href = "http://localhost:3000/";
-}
+}else{
 
   return (
    <>
@@ -39,6 +39,6 @@ if (token == null) {
    </>
 
   );
-}
+} }
 
 export default User;

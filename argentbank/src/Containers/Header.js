@@ -15,7 +15,6 @@ import logo from './../img/argentBankLogo.png';
  */
 
 
-
 function Header(props) {
    var token = useSelector(selectToken);
   const dispatch = useDispatch()
@@ -32,7 +31,21 @@ function Logoutdiv(status) {
 
   return (
     <>
-     {visibility&& <Nav.Link  onClick={() => Logout()} className="main-nav-item" href="/Sign_in" ><i className="fa fa-sign-out"></i>Sign out</Nav.Link> }
+     {visibility&& <> <Nav.Link  onClick={() => Logout()} className="main-nav-item" href="/Sign_in" ><i className="fa fa-sign-out"></i>Sign out</Nav.Link> </> }
+     {visibility&& <> <Nav.Link className="main-nav-item" href="/User"><i className="fa fa-user-circle"></i>User</Nav.Link> </> }
+    </>
+  );
+}
+
+
+function Singindiv(status) {
+  const [visibility,set_visibility] = useState(status)
+  const dispatch = useDispatch()
+
+  return (
+    <>
+     {visibility&& <> <Nav.Link className="main-nav-item" href="/Sign_up"><i className="fa fa-user-circle"></i>Sign Up</Nav.Link> </>}
+     {visibility&& <> <Nav.Link className="main-nav-item" href="/Sign_in"><i className="fa fa-user-circle"></i>Sign In</Nav.Link> </>}
     </>
   );
 }
@@ -54,7 +67,7 @@ function Logoutdiv(status) {
       </Navbar.Brand>
       <div>
       {Logoutdiv(status)}
-      <Nav.Link className="main-nav-item" href="/Sign_in"><i className="fa fa-user-circle"></i>Sign In</Nav.Link>
+      {Singindiv(!status)}
       </div>
   </Navbar>
 </>

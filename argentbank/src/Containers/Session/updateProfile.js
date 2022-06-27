@@ -2,6 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { useSelector, useDispatch } from 'react-redux'
 
+/**
+ * Code to change the user info in the dashboard
+ * @param   {token}          string     User Token      
+ */
+
 function updateProfile(Token) {
 
    let FirstName = prompt("Please enter your first name:", "FirstName");

@@ -9,6 +9,7 @@ import './css/main.css';
 
 import Home from "./Containers";
 import Sign_in from "./Containers/Sign_in";
+import Sign_up from "./Containers/Sign_up";
 import User from "./Containers/User";
 import Header from "./Containers/Header.js";
 import Footer from "./Containers/Footer.js";
@@ -32,6 +33,7 @@ export default function App() {
 
          <Routes>
             <Route index element={<Home/>} />
+            <Route path={'/Sign_up'} element={<Sign_up />} />
             <Route path={'/Sign_in'} element={<Sign_in />} />
             <Route path={'/User'} element={<User />} />
           </Routes>
