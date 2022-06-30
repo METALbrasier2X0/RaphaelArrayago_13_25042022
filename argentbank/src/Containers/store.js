@@ -5,6 +5,11 @@ import {combineReducers} from "redux";
 import { persistReducer } from 'redux-persist';
 import thunk from 'redux-thunk';
 
+/**
+ * Code to handle redux reducers 
+ */
+
+
 const reducers = combineReducers({
   Token: tokenReducer
 });

@@ -5,7 +5,9 @@ import { useSelector, useDispatch } from 'react-redux'
 /**
  * Code to change the user info in the dashboard
  * @param   {token}          string     User Token      
+ * @return  {json response}             the answer from the back end        
  */
+
 
 function updateProfile(Token) {
 

@@ -6,6 +6,11 @@ import { BrowserRouter, Routes, Route, Link, useHistory, useLocation, Redirect }
 import { useSelector, useDispatch } from 'react-redux'
 import { storeToken, clearToken } from '../Session/userSession'
 
+/**
+ * Code to Sign up a user 
+ * @return  {React element}             Containers that shows the sign up form          
+ */
+
 function Sign_up() {
 
   const dispatch = useDispatch()
@@ -35,7 +40,7 @@ return fetch('http://localhost:3001/api/v1/user/signup', {
   .then(response => {
     dispatch(storeToken(response.body.token));
     console.debug(response);
-    window.location.href = "http://localhost:3000/Sign_in";
+    window.location.href = "http://localhost:3000/login";
   }).catch(error => {
     console.error(error);
   });

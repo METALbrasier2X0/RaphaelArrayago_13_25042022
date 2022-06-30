@@ -7,6 +7,12 @@ import Chat from './../img/icon-chat.png';
 import Money from './../img/icon-money.png';
 import Security from './../img/icon-security.png';
 
+/**
+ * Code to show the home page
+ * @return  {React element}             Containers that shows the home page   
+ */
+
+
 function Home() {
 
   return (

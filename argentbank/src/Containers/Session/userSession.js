@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+/**
+ * Code to handle redux actions
+ */
+
+
 export const tokenSlice = createSlice({
   name: 'Token',
   initialState: {

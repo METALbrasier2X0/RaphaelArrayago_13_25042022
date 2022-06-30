@@ -6,6 +6,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import { storeToken, clearToken } from './userSession'
 
 
+/**
+ * Code to load user info
+ * @param   {token}          string     User Token   
+ * @return  {json response}             the answer from the back end            
+ */
+
 
 function GetProfile(Token) {
 

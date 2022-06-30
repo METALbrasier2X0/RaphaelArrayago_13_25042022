@@ -31,8 +31,8 @@ function Logoutdiv(status) {
 
   return (
     <>
-     {visibility&& <> <Nav.Link  onClick={() => Logout()} className="main-nav-item" href="/Sign_in" ><i className="fa fa-sign-out"></i>Sign out</Nav.Link> </> }
-     {visibility&& <> <Nav.Link className="main-nav-item" href="/User"><i className="fa fa-user-circle"></i>User</Nav.Link> </> }
+     {visibility&& <> <Nav.Link  onClick={() => Logout()} className="main-nav-item" href="/" ><i className="fa fa-sign-out"></i>Sign out</Nav.Link> </> }
+     {visibility&& <> <Nav.Link className="main-nav-item" href="/profile"><i className="fa fa-user-circle"></i>Profile</Nav.Link> </> }
     </>
   );
 }
@@ -44,8 +44,8 @@ function Singindiv(status) {
 
   return (
     <>
-     {visibility&& <> <Nav.Link className="main-nav-item" href="/Sign_up"><i className="fa fa-user-circle"></i>Sign Up</Nav.Link> </>}
-     {visibility&& <> <Nav.Link className="main-nav-item" href="/Sign_in"><i className="fa fa-user-circle"></i>Sign In</Nav.Link> </>}
+     {visibility&& <> <Nav.Link className="main-nav-item" href="/sign_up"><i className="fa fa-user-circle"></i>Sign Up</Nav.Link> </>}
+     {visibility&& <> <Nav.Link className="main-nav-item" href="/login"><i className="fa fa-user-circle"></i>Sign In</Nav.Link> </>}
     </>
   );
 }

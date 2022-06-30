@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom';
 import { generatePath } from "react-router";
 import { BrowserRouter, Routes, Route, Link, useHistory, useLocation, Redirect } from "react-router-dom";
 
+/**
+ * Code to show the transaction
+ * @param   {props}           props     Props containing data from parent component like transaction name and the state
+ * @return  {React element}             Containers that shows the transaction bloc       
+ */
+
+
 function Bloc(props) {
 
   return (

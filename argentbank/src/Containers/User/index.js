@@ -9,6 +9,12 @@ import GetProfile from './../Session/userProfile.js';
 import updateProfile from './../Session/updateProfile.js';
 import Bloc from "./bloc.js";
 
+/**
+ * Code to show the user dashboard
+ * @return  {React element}             Containers that shows the the dashboard       
+ */
+
+
 function User() {
 
   const token = useSelector(selectToken);

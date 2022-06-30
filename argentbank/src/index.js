@@ -21,6 +21,12 @@ import { persistStore } from 'redux-persist';
 
 let persistor = persistStore(store);
 
+/**
+ * Code to handles index, routing and persistance 
+ * @return  {React element}             Containers that renders the app  
+ */
+
+
 export default function App() {
 
   return (
@@ -33,9 +39,9 @@ export default function App() {
 
          <Routes>
             <Route index element={<Home/>} />
-            <Route path={'/Sign_up'} element={<Sign_up />} />
-            <Route path={'/Sign_in'} element={<Sign_in />} />
-            <Route path={'/User'} element={<User />} />
+            <Route path={'/sign_up'} element={<Sign_up />} />
+            <Route path={'/login'} element={<Sign_in />} />
+            <Route path={'/profile'} element={<User />} />
           </Routes>
 
 

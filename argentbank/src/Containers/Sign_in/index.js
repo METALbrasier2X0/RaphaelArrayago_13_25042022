@@ -6,7 +6,10 @@ import { BrowserRouter, Routes, Route, Link, useHistory, useLocation, Redirect }
 import { useSelector, useDispatch } from 'react-redux'
 import { storeToken, clearToken } from '../Session/userSession'
 
-/*import GetToken from './../Session/userLogin.js';*/
+/**
+ * Code to Log in a user 
+ * @return  {React element}             Containers that shows the log in form          
+ */
 
 function Sign_in() {
 
@@ -37,7 +40,7 @@ return fetch('http://localhost:3001/api/v1/user/login', {
   .then(response => {
     dispatch(storeToken(response.body.token));
     console.debug(response);
-    window.location.href = "http://localhost:3000/User";
+    window.location.href = "http://localhost:3000/profile";
   }).catch(error => {
     console.error(error);
   });
